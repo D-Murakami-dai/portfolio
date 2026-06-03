@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2d5a3d;
+      --accent-light: #e8f0eb;
+      --border: #e0ddd6;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2rem auto 0;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .header-sub {
+      margin-top: 1rem;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    .section-heading {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    .game-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 24px;
+    }
+
+    .media-area {
+      background: #1a1a1a;
+      padding: 1.5rem 2rem;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .media-area img {
+      width: 200px;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #444;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .card-body {
+      padding: 1.5rem 2rem;
+    }
+
+    .card-body a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      padding: 4px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .card-body a:hover {
+      color: var(--text);
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .img-placeholder {
+      width: 200px;
+      height: 360px;
+      background: #2a2a2a;
+      border: 1px dashed #444;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #888;
+      font-size: 12px;
+    }
+
+    .video-area {
+      padding: 1rem 2rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .video-link:hover {
+      opacity: 0.85;
+    }
+
+    .video-link::before {
+      content: '▶';
+      font-size: 12px;
+    }
+
+    .video-note {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 30px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio</h1>
+    <p class="header-sub">プログラミング学習を通じて制作したものを紹介します</p>
+  </header>
+
+  <main>
+    <p class="section-heading">Works</p>
+
+    <!-- 目次 -->
+    <article class="game-card">
+      <div class="media-area" style="background:#ffffff;">
+        <p style="color:#333;">下記のリンクをクリックして制作物を確認してください．</p>
+      </div>
+      <div class="card-body">
+        <a href="#oekaki">シンプルなお絵描きアプリCanVasView</a>
+        <a href="#count">アナログカードゲーム向けのライフカウントアプリ</a>
+        <a href="#keisan">シンプルな計算アプリ(電卓よりとてもシンプル)</a>
+        <a href="#janken">じゃんけんゲームアプリ</a>
+        <a href="#marubatu">〇✕ゲームアプリ</a>
+        <a href="#tansan">炭酸ゲームアプリ</a>
+        <a href="#zikken">修士_実験アプリ</a>
+        <a href="#syusseki">出席確認アプリ</a>
+        <a href="#stamp">デジタルスタンプラリーアプリ</a>
+      </div>
+    </article>
+
+    <!-- 01 お絵描きアプリ -->
+    <article class="game-card" id="oekaki">
+      <h2 class="card-title">シンプルなお絵描きアプリ CanVasView</h2>
+      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+      <div class="media-area">
+        <img src="images/oekaki/1.png" alt="お絵描きアプリ">
+        <img src="images/oekaki/2.png" alt="お絵描きアプリ">
+      </div>
+      <div class="video-area">
+        <a class="video-link" href="https://youtube.com/shorts/opqZ8jdToyw" target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+
+    <!-- 02 カウントアプリ -->
+    <article class="game-card" id="count">
+      <h2 class="card-title">アナログカードゲーム向けのライフカウントアプリ</h2>
+      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+      <div class="media-area">
+        <img src="images/count/1.png" alt="カウントアプリ" style="width:320px; height:200px; object-fit:cover; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/count/2.png" alt="カウントアプリ" style="width:320px; height:200px; object-fit:cover; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+      </div>
+      <div class="video-area">
+        <a class="video-link" href="https://youtu.be/RjgQxjfknUs" target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+    
+<!-- 03 計算アプリ -->
+<article class="game-card" id="keisan">
+  <h2 class="card-title">シンプルな計算アプリ(電卓よりとてもシンプル)</h2>
+  <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+  <div class="media-area">
+    <img src="images/keisan/1.png" alt="計算アプリ" style="width:280px; height:500px; object-fit:contain; object-position:top; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/keisan/2.png" alt="計算アプリ" style="width:280px; height:500px; object-fit:contain; object-position:top; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/keisan/3.png" alt="計算アプリ" style="width:280px; height:500px; object-fit:contain; object-position:top; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/keisan/4.png" alt="計算アプリ" style="width:280px; height:500px; object-fit:contain; object-position:top; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/keisan/5.png" alt="計算アプリ" style="width:280px; height:500px; object-fit:contain; object-position:top; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+  </div>
+  <div class="video-area">
+    <a class="video-link" href="https://youtube.com/shorts/dxNFfNN3wSE" target="_blank">実行例</a>
+    <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+  </div>
+</article>
+
+<!-- 04 じゃんけん -->
+<article class="game-card" id="janken">
+  <h2 class="card-title">じゃんけんゲームアプリ</h2>
+  <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+  <div class="media-area">
+    <img src="images/janken/1.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/janken/2.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/janken/3.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/janken/4.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/janken/5.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/janken/6.png" alt="じゃんけんアプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+  </div>
+  <div class="video-area">
+    <a class="video-link" href="https://youtube.com/shorts/I2oGLC4wi90" target="_blank">実行例</a>
+    <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+  </div>
+</article>
+
+<!-- 05 〇×ゲーム -->
+<article class="game-card" id="marubatu">
+  <h2 class="card-title">〇✕ゲームアプリ</h2>
+  <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+  <div class="media-area">
+    <img src="images/marubatu/1.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/2.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/3.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/4.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/5.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/6.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/7.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/marubatu/8.png" alt="〇×アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+  </div>
+  <div class="video-area">
+    <a class="video-link" href="https://youtube.com/shorts/KT9uu7ZOlDc" target="_blank">実行例</a>
+    <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+  </div>
+</article>
+
+<!-- 06 炭酸ゲーム -->
+<article class="game-card" id="tansan">
+  <h2 class="card-title">炭酸ゲームアプリ</h2>
+  <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
+  <div class="media-area">
+    <img src="images/tansan/1.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/2.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/3.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/4.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/5.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/6.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/7.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/8.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+    <img src="images/tansan/9.png" alt="炭酸ゲーム" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+  </div>
+  <div class="video-area">
+    <a class="video-link" href="https://youtube.com/shorts/GYl5fBAdhhk" target="_blank">実行例</a>
+    <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+  </div>
+</article>
+
+    <!--07 実験アプリ-->
+    <article class="game-card" id="zikken">
+      <h2 class="card-title">実験アプリ_氏名リスト選択(修士)</h2>
+      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Xcode　開発言語: swift</p>
+      <div class="media-area">
+        <img src="images/jikken/1.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/2.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/3.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/4.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/5.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/6.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/7.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+        <img src="images/jikken/8.png" alt="修士_実験アプリ" style="width:280px; height:600px; object-fit:contain; border-radius:12px; border:1px solid #444; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+      </div>
+      <div class="video-area">
+        <a class="video-link" href="https://youtube.com/shorts/s3Z6UUhQAqA" target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+
+     <!--08 出席確認アプリ -->
+    <article class="game-card" id="syusseki">
+      <h2 class="card-title">出席確認アプリ</h2>
+      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Xcode　開発言語: swift</p>
+      <div class="media-area">
+        <div class="img-placeholder">🖼 画像1</div>
+        <div class="img-placeholder">🖼 画像2</div>
+      </div>
+      <div class="video-area">
+        <a class="video-link" href="動画のURLをここに入れる" target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+
+    <!--09 スタンプラリー-->
+    <article class="game-card" id="stamp">
+      <h2 class="card-title">デジタルスタンプラリーアプリ</h2>
+      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Visual Studio Code　開発言語: PHP / JavaScript</p>
+      <div class="media-area">
+        <div class="img-placeholder">🖼 画像1</div>
+        <div class="img-placeholder">🖼 画像2</div>
+      </div>
+      <div class="video-area">
+        <a class="video-link" href="動画のURLをここに入れる" target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+
+
+  </main>
+
+  <p class="footer-note">今後も作成したアプリ・ゲーム・システムなどを紹介し，更新する(不定期更新)</p>
+
+  <footer>
+    <p>© 2026</p>
+  </footer>
+
+</body>
+</html>
