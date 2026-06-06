@@ -40,7 +40,7 @@
     }
 
     .header-sub { margin-top: 1rem; font-size: 15px; color: var(--muted); }
-    main { max-width: 860px; margin: 0 auto; padding: 0 24px 100px; }
+    main { max-width: 900px; margin: 0 auto; padding: 0 24px 100px; }
 
     .section-heading {
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -48,46 +48,94 @@
     }
     .section-heading::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
 
+    /* 目次カード */
+    .toc-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem;
+    }
+    .toc-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; font-weight: 400; padding: 1.25rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .toc-note { padding: 0.75rem 2rem; font-size: 13px; color: var(--muted); border-bottom: 0.5px solid var(--border); }
+    .toc-body { padding: 1rem 2rem; }
+    .toc-body a { color: var(--accent); text-decoration: none; font-size: 14px; display: block; padding: 4px 0; border-bottom: 0.5px solid var(--border); }
+    .toc-body a:last-child { border-bottom: none; }
+    .toc-body a:hover { color: var(--text); }
+
+    /* アプリカード */
     .game-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; scroll-margin-top: 24px;
     }
 
-    .media-area {
-      background: #1a1a1a; padding: 1.5rem 2rem;
-      display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start;
+    /* アプリ名・開発環境 */
+    .card-header {
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: 0.25rem;
+    }
+    .card-meta {
+      font-size: 13px; color: var(--muted);
     }
 
-    .img-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    /* 画像＋テキスト横並び */
+    .card-content {
+      display: flex;
+      align-items: flex-start;
+      padding: 1.5rem 2rem;
+      gap: 2rem;
     }
 
-    .img-wrap img {
-      border-radius: 12px; border: 1px solid #444; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    .card-image {
+      flex: 0 0 auto;
+      margin-left: 1rem; /* 中央より少し左 */
     }
 
-    /* キャプション：太く・明るく */
-    .img-caption {
-      color: #ddd;
-      font-size: 12px;
+    .card-image img {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    .card-image .img-placeholder {
+      width: 200px; height: 320px;
+      background: #f0ede6; border: 1px dashed var(--border);
+      border-radius: 10px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px; color: var(--muted); font-size: 12px;
+    }
+
+    .card-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* 一言キャッチコピー */
+    .card-catchcopy {
+      font-size: 1.1rem;
       font-weight: 600;
-      text-align: center;
+      color: var(--accent);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-light);
     }
 
-    .card-body { padding: 1.5rem 2rem; }
-    .card-body a { color: var(--accent); text-decoration: none; font-size: 14px; display: block; padding: 4px 0; border-bottom: 0.5px solid var(--border); }
-    .card-body a:hover { color: var(--text); }
-
-    .card-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; font-weight: 400; padding: 1.25rem 2rem; border-bottom: 0.5px solid var(--border); }
-
-    .img-placeholder {
-      width: 200px; height: 360px; background: #2a2a2a; border: 1px dashed #444;
-      border-radius: 12px; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 6px; color: #888; font-size: 12px;
+    /* 概要説明 */
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
     }
 
-    .video-area { padding: 1rem 2rem 1.25rem; display: flex; align-items: center; gap: 12px; border-top: 0.5px solid var(--border); }
-
+    /* 実行例 */
+    .video-area {
+      padding: 1rem 2rem 1.25rem;
+      display: flex; align-items: center; gap: 12px;
+      border-top: 0.5px solid var(--border);
+    }
     .video-link {
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
       background: var(--accent); color: #fff; text-decoration: none; border-radius: 8px;
@@ -98,7 +146,7 @@
     .video-note { font-size: 13px; color: var(--muted); }
 
     footer { text-align: center; padding: 2rem; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); }
-    .footer-note { text-align: center; font-size: 30px; color: var(--muted); margin-bottom: 2rem; }
+    .footer-note { text-align: center; font-size: 18px; color: var(--muted); margin-bottom: 2rem; padding: 0 24px; }
   </style>
 </head>
 <body>
@@ -112,13 +160,11 @@
     <p class="section-heading">Works</p>
 
     <!-- 目次 -->
-    <article class="game-card">
-      <h2 class="card-title">作品一覧</h2>
-      <div class="media-area" style="background:#ffffff;">
-        <p style="color:#333;">下記のリンクをクリックして制作物を確認してください．</p>
-      </div>
-      <div class="card-body">
-        <a href="#oekaki">シンプルなお絵描きアプリCanVasView</a>
+    <div class="toc-card">
+      <h2 class="toc-title">作品一覧</h2>
+      <p class="toc-note">下記のリンクをクリックして制作物を確認してください．</p>
+      <div class="toc-body">
+        <a href="#oekaki">シンプルなお絵描きアプリ CanVasView</a>
         <a href="#count">アナログカードゲーム向けのライフカウントアプリ</a>
         <a href="#keisan">シンプルな計算アプリ(電卓よりとてもシンプル)</a>
         <a href="#janken">じゃんけんゲームアプリ</a>
@@ -128,21 +174,21 @@
         <a href="#syusseki">出席確認アプリ</a>
         <a href="#stamp">デジタルスタンプラリーアプリ</a>
       </div>
-    </article>
+    </div>
 
     <!-- 01 お絵描きアプリ -->
     <article class="game-card" id="oekaki">
-      <h2 class="card-title">シンプルなお絵描きアプリ CanVasView</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">指でなぞることで自由に絵が描けるシンプルなお絵描きアプリです．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/oekaki/1.png" alt="お絵描きアプリ" style="width:200px;">
-          <p class="img-caption">起動直後の画面</p>
-        </div>
-        <div class="img-wrap">
+      <div class="card-header">
+        <h2 class="card-title">シンプルなお絵描きアプリ CanVasView</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
           <img src="images/oekaki/2.png" alt="お絵描きアプリ" style="width:200px;">
-          <p class="img-caption">描画後の画面</p>
+        </div>
+        <div class="card-text">
+          <p class="card-catchcopy">指でなぞると絵が書ける</p>
+          <p class="card-desc">指でなぞることで自由に絵が描けるシンプルなお絵描きアプリです．</p>
         </div>
       </div>
       <div class="video-area">
@@ -153,17 +199,17 @@
 
     <!-- 02 カウントアプリ -->
     <article class="game-card" id="count">
-      <h2 class="card-title">アナログカードゲーム向けのライフカウントアプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">アナログカードゲームのライフ管理を目的としたカウントアプリです．+ボタンで数字が増え，-ボタンで数字が減るようになっています．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/count/1.png" alt="カウントアプリ" style="width:320px;">
-          <p class="img-caption">初期画面</p>
+      <div class="card-header">
+        <h2 class="card-title">アナログカードゲーム向けのライフカウントアプリ</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/count/2.png" alt="カウントアプリ" style="width:300px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/count/2.png" alt="カウントアプリ" style="width:320px;">
-          <p class="img-caption">カウント後の画面</p>
+        <div class="card-text">
+          <p class="card-catchcopy">アナログカードゲームのライフ管理として利用できる</p>
+          <p class="card-desc">アナログカードゲームのライフ管理を目的としたカウントアプリです．+ボタンで数字が増え，-ボタンで数字が減るようになっています．</p>
         </div>
       </div>
       <div class="video-area">
@@ -174,29 +220,17 @@
 
     <!-- 03 計算アプリ -->
     <article class="game-card" id="keisan">
-      <h2 class="card-title">シンプルな計算アプリ(電卓よりとてもシンプル)</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">2つの数字を入力して，各演算子のボタンを選択することで計算結果を返すことが出来る電卓よりとてもシンプルな計算アプリです．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/keisan/1.png" alt="計算アプリ" style="width:280px;">
-          <p class="img-caption">入力画面</p>
+      <div class="card-header">
+        <h2 class="card-title">シンプルな計算アプリ(電卓よりとてもシンプル)</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/keisan/1.png" alt="計算アプリ" style="width:200px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/keisan/2.png" alt="計算アプリ" style="width:280px;">
-          <p class="img-caption">足し算の結果画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/keisan/3.png" alt="計算アプリ" style="width:280px;">
-          <p class="img-caption">引き算の結果画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/keisan/4.png" alt="計算アプリ" style="width:280px;">
-          <p class="img-caption">掛け算の結果画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/keisan/5.png" alt="計算アプリ" style="width:280px;">
-          <p class="img-caption">割り算の結果画面</p>
+        <div class="card-text">
+          <p class="card-catchcopy">2つの数字を入力して計算する(電卓よりとてもシンプル)</p>
+          <p class="card-desc">2つの数字を入力して，各演算子のボタンを選択することで計算結果を返すことが出来る電卓よりとてもシンプルな計算アプリです．</p>
         </div>
       </div>
       <div class="video-area">
@@ -207,33 +241,17 @@
 
     <!-- 04 じゃんけん -->
     <article class="game-card" id="janken">
-      <h2 class="card-title">じゃんけんゲームアプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">グー・チョキ・パーのいずれかを選択し，ランダムに手を出すコンピュータとじゃんけんで対戦するゲームです．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/janken/1.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">グーを選択した画面</p>
+      <div class="card-header">
+        <h2 class="card-title">じゃんけんゲームアプリ</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/janken/1.png" alt="じゃんけんアプリ" style="width:200px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/janken/2.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">チョキを選択した画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/janken/3.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">パーを選択した画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/janken/4.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">結果画面（あいこ）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/janken/5.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">結果画面（コンピュータの勝ち）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/janken/6.png" alt="じゃんけんアプリ" style="width:260px;">
-          <p class="img-caption">結果画面（あなたの勝ち）</p>
+        <div class="card-text">
+          <p class="card-catchcopy">コンピュータとじゃんけんで対戦する</p>
+          <p class="card-desc">グー・チョキ・パーのいずれかを選択し，ランダムに手を出すコンピュータとじゃんけんで対戦するゲームです．</p>
         </div>
       </div>
       <div class="video-area">
@@ -244,41 +262,17 @@
 
     <!-- 05 〇×ゲーム -->
     <article class="game-card" id="marubatu">
-      <h2 class="card-title">〇✕ゲームアプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">2人で交互に〇と×を置き，縦・横・斜めのいずれかを3つ揃え，勝敗を決めるゲームです．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/marubatu/1.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">タイトル画面</p>
+      <div class="card-header">
+        <h2 class="card-title">〇✕ゲームアプリ</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/marubatu/3.png" alt="〇×アプリ" style="width:200px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/2.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">ゲーム開始直後の画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/3.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">ゲーム中の画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/4.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">〇の勝ち画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/5.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">ゲーム中の画面（終盤）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/6.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">×の勝ち画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/7.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">ゲーム中の画面（残り1マス）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/marubatu/8.png" alt="〇×アプリ" style="width:260px;">
-          <p class="img-caption">引き分け画面</p>
+        <div class="card-text">
+          <p class="card-catchcopy">〇と×を交互に置く</p>
+          <p class="card-desc">2人で交互に〇と×を置き，縦・横・斜めのいずれかを3つ揃え，勝敗を決めるゲームです．</p>
         </div>
       </div>
       <div class="video-area">
@@ -289,45 +283,17 @@
 
     <!-- 06 炭酸ゲーム -->
     <article class="game-card" id="tansan">
-      <h2 class="card-title">炭酸ゲームアプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Android Studio　開発言語: Java</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">迷路の中に隠された炭酸(今回はコーラ)を制限時間内にたくさん見つけていくゲームです．下の矢印キーでキャラクターを操作します．迷路は，レベルに応じて変わります．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/tansan/1.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">タイトル画面</p>
+      <div class="card-header">
+        <h2 class="card-title">炭酸ゲームアプリ</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/tansan/8.png" alt="炭酸ゲーム" style="width:200px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/tansan/2.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">ゲームの説明画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/3.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">レベル選択画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/4.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">ゲーム中の画面（Level 1）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/5.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">コーラに近づいた画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/6.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">コーラを取得した画面（Score: 1）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/7.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">ゲーム終了画面（Score: 19）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/8.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">ゲーム中の画面（Level 3）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/tansan/9.png" alt="炭酸ゲーム" style="width:260px;">
-          <p class="img-caption">ゲーム終了画面（Score: 41）</p>
+        <div class="card-text">
+          <p class="card-catchcopy">矢印ボタン操作で炭酸を取る</p>
+          <p class="card-desc">迷路の中に隠された炭酸(今回はコーラ)を制限時間内にたくさん見つけていくゲームです．下の矢印キーでキャラクターを操作します．迷路は，レベルに応じて変わります．</p>
         </div>
       </div>
       <div class="video-area">
@@ -338,41 +304,17 @@
 
     <!-- 07 実験アプリ -->
     <article class="game-card" id="zikken">
-      <h2 class="card-title">実験アプリ_氏名リスト選択(修士)</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Xcode　開発言語: Swift</p>
-      <p style="padding: 0.5rem 2rem; font-size: 14px; color: var(--text);">修士論文の研究で使用したiOS上で動作する実験アプリです．氏名リストから自分の名前をスワイプ操作で探し，リストの件数による操作時の負荷の違いを調べます．氏名を入力するとリストに反映されます．</p>
-      <div class="media-area">
-        <div class="img-wrap">
-          <img src="images/jikken/1.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">起動画面（氏名入力前）</p>
+      <div class="card-header">
+        <h2 class="card-title">実験アプリ_氏名リスト選択(修士)</h2>
+        <p class="card-meta">開発環境: Xcode　開発言語: Swift</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/jikken/5.png" alt="実験アプリ" style="width:200px;">
         </div>
-        <div class="img-wrap">
-          <img src="images/jikken/2.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名入力後の画面</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/3.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名リスト（5名）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/4.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名リスト（10名）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/5.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名リスト（15名）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/6.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名リスト（40名・スクロール中）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/7.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">氏名リスト（200名・スクロール中）</p>
-        </div>
-        <div class="img-wrap">
-          <img src="images/jikken/8.png" alt="修士_実験アプリ" style="width:260px;">
-          <p class="img-caption">実験終了画面</p>
+        <div class="card-text">
+          <p class="card-catchcopy">スワイプ操作で自分の氏名をタップする</p>
+          <p class="card-desc">修士論文の研究で使用したiOS上で動作する実験アプリです．氏名リストから自分の名前をスワイプ操作で探し，リストの件数による操作時の負荷の違いを調べます．氏名を入力するとリストに反映されます．</p>
         </div>
       </div>
       <div class="video-area">
@@ -383,11 +325,18 @@
 
     <!-- 08 出席確認アプリ -->
     <article class="game-card" id="syusseki">
-      <h2 class="card-title">出席確認アプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Xcode　開発言語: Swift</p>
-      <div class="media-area">
-        <div class="img-placeholder">🖼 画像1</div>
-        <div class="img-placeholder">🖼 画像2</div>
+      <div class="card-header">
+        <h2 class="card-title">出席確認アプリ</h2>
+        <p class="card-meta">開発環境: Xcode　開発言語: Swift</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <div class="img-placeholder">🖼 画像</div>
+        </div>
+        <div class="card-text">
+          <p class="card-catchcopy">ここに一言キャッチコピーを書く</p>
+          <p class="card-desc">概要説明文をここに書く</p>
+        </div>
       </div>
       <div class="video-area">
         <a class="video-link" href="動画のURLをここに入れる" target="_blank">実行例</a>
@@ -397,11 +346,18 @@
 
     <!-- 09 スタンプラリー -->
     <article class="game-card" id="stamp">
-      <h2 class="card-title">デジタルスタンプラリーアプリ</h2>
-      <p style="padding: 0.5rem 2rem; font-size: 13px; color: var(--muted);">開発環境: Visual Studio Code　開発言語: PHP / JavaScript</p>
-      <div class="media-area">
-        <div class="img-placeholder">🖼 画像1</div>
-        <div class="img-placeholder">🖼 画像2</div>
+      <div class="card-header">
+        <h2 class="card-title">デジタルスタンプラリーアプリ</h2>
+        <p class="card-meta">開発環境: Visual Studio Code　開発言語: PHP / JavaScript</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <div class="img-placeholder">🖼 画像</div>
+        </div>
+        <div class="card-text">
+          <p class="card-catchcopy">ここに一言キャッチコピーを書く</p>
+          <p class="card-desc">概要説明文をここに書く</p>
+        </div>
       </div>
       <div class="video-area">
         <a class="video-link" href="動画のURLをここに入れる" target="_blank">実行例</a>
