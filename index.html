@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -83,7 +84,7 @@
     .card-content {
       display: flex;
       align-items: flex-start;
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem; /* 1.5rem → 1rem に変更 */
       gap: 2rem;
     }
 
@@ -106,12 +107,12 @@
       align-items: center; justify-content: center;
       gap: 6px; color: var(--muted); font-size: 12px;
     }
-
+    
     .card-text {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.25rem; /* 0.75rem → 0.25rem に変更 */
     }
 
     /* 一言キャッチコピー */
@@ -128,6 +129,11 @@
       font-size: 14px;
       color: var(--muted);
       line-height: 1.8;
+      border: 4px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      height: 200px; /* ← ここで高さを調整 */
+      overflow-y: auto;
     }
 
     /* 実行例 */
@@ -165,11 +171,10 @@
       <p class="toc-note">下記のリンクをクリックして制作物を確認してください．</p>
       <div class="toc-body">
         <a href="#oekaki">シンプルなお絵描きアプリ CanVasView</a>
-        <a href="#count">アナログカードゲーム向けのライフカウントアプリ</a>
-        <a href="#keisan">シンプルな計算アプリ(電卓よりとてもシンプル)</a>
         <a href="#janken">じゃんけんゲームアプリ</a>
         <a href="#marubatu">〇✕ゲームアプリ</a>
         <a href="#tansan">炭酸ゲームアプリ</a>
+        <a href="#kinoko">キノコゲームアプリ</a>
         <a href="#zikken">修士_実験アプリ</a>
         <a href="#syusseki">出席確認アプリ</a>
         <a href="#stamp">デジタルスタンプラリーアプリ</a>
@@ -197,49 +202,7 @@
       </div>
     </article>
 
-    <!-- 02 カウントアプリ -->
-    <article class="game-card" id="count">
-      <div class="card-header">
-        <h2 class="card-title">アナログカードゲーム向けのライフカウントアプリ</h2>
-        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
-      </div>
-      <div class="card-content">
-        <div class="card-image">
-          <img src="images/count/2.png" alt="カウントアプリ" style="width:300px;">
-        </div>
-        <div class="card-text">
-          <p class="card-catchcopy">アナログカードゲームのライフ管理として利用できる</p>
-          <p class="card-desc">アナログカードゲームのライフ管理を目的としたカウントアプリです．+ボタンで数字が増え，-ボタンで数字が減るようになっています．</p>
-        </div>
-      </div>
-      <div class="video-area">
-        <a class="video-link" href="https://youtu.be/RjgQxjfknUs" target="_blank">実行例</a>
-        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
-      </div>
-    </article>
-
-    <!-- 03 計算アプリ -->
-    <article class="game-card" id="keisan">
-      <div class="card-header">
-        <h2 class="card-title">シンプルな計算アプリ(電卓よりとてもシンプル)</h2>
-        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
-      </div>
-      <div class="card-content">
-        <div class="card-image">
-          <img src="images/keisan/1.png" alt="計算アプリ" style="width:200px;">
-        </div>
-        <div class="card-text">
-          <p class="card-catchcopy">2つの数字を入力して計算する(電卓よりとてもシンプル)</p>
-          <p class="card-desc">2つの数字を入力して，各演算子のボタンを選択することで計算結果を返すことが出来る電卓よりとてもシンプルな計算アプリです．</p>
-        </div>
-      </div>
-      <div class="video-area">
-        <a class="video-link" href="https://youtube.com/shorts/dxNFfNN3wSE" target="_blank">実行例</a>
-        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
-      </div>
-    </article>
-
-    <!-- 04 じゃんけん -->
+    <!-- 02 じゃんけん -->
     <article class="game-card" id="janken">
       <div class="card-header">
         <h2 class="card-title">じゃんけんゲームアプリ</h2>
@@ -247,20 +210,20 @@
       </div>
       <div class="card-content">
         <div class="card-image">
-          <img src="images/janken/1.png" alt="じゃんけんアプリ" style="width:200px;">
+          <img src="images/janken/7.png" alt="じゃんけんアプリ" style="width:200px;">
         </div>
         <div class="card-text">
-          <p class="card-catchcopy">コンピュータとじゃんけんで対戦する</p>
-          <p class="card-desc">グー・チョキ・パーのいずれかを選択し，ランダムに手を出すコンピュータとじゃんけんで対戦するゲームです．</p>
+          <p class="card-catchcopy">キャラクターとじゃんけんで対戦する</p>
+          <p class="card-desc">今後更新</p>
         </div>
       </div>
       <div class="video-area">
-        <a class="video-link" href="https://youtube.com/shorts/I2oGLC4wi90" target="_blank">実行例</a>
+        <a class="video-link" href="https://youtube.com/shorts/GvYHG5oCGvI" target="_blank">実行例</a>
         <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
       </div>
     </article>
 
-    <!-- 05 〇×ゲーム -->
+    <!-- 03 〇×ゲーム -->
     <article class="game-card" id="marubatu">
       <div class="card-header">
         <h2 class="card-title">〇✕ゲームアプリ</h2>
@@ -271,7 +234,7 @@
           <img src="images/marubatu/3.png" alt="〇×アプリ" style="width:200px;">
         </div>
         <div class="card-text">
-          <p class="card-catchcopy">〇と×を交互に置く</p>
+          <p class="card-catchcopy">〇と×を交互に置いて対戦する</p>
           <p class="card-desc">2人で交互に〇と×を置き，縦・横・斜めのいずれかを3つ揃え，勝敗を決めるゲームです．</p>
         </div>
       </div>
@@ -281,7 +244,7 @@
       </div>
     </article>
 
-    <!-- 06 炭酸ゲーム -->
+    <!-- 04 炭酸ゲーム -->
     <article class="game-card" id="tansan">
       <div class="card-header">
         <h2 class="card-title">炭酸ゲームアプリ</h2>
@@ -302,7 +265,28 @@
       </div>
     </article>
 
-    <!-- 07 実験アプリ -->
+        <!-- 05 キノコアプリ -->
+    <article class="game-card" id="kinoko">
+      <div class="card-header">
+        <h2 class="card-title">キノコゲーム</h2>
+        <p class="card-meta">開発環境: Android Studio　開発言語: Java</p>
+      </div>
+      <div class="card-content">
+        <div class="card-image">
+          <img src="images/kinoko/1.png" alt="キノコゲーム" style="width:200px;">
+        </div>
+        <div class="card-text">
+          <p class="card-catchcopy">キノコを叩いたり，避けたり，捕まえたりする</p>
+          <p class="card-desc">今後更新</p>
+        </div>
+      </div>
+      <div class="video-area">
+        <a class="video-link" href=https://youtube.com/shorts/GZgoEGze9zI target="_blank">実行例</a>
+        <p class="video-note">クリックすると実際の動いているアプリを確認できます．</p>
+      </div>
+    </article>
+
+    <!-- 06 実験アプリ -->
     <article class="game-card" id="zikken">
       <div class="card-header">
         <h2 class="card-title">実験アプリ_氏名リスト選択(修士)</h2>
@@ -323,7 +307,7 @@
       </div>
     </article>
 
-    <!-- 08 出席確認アプリ -->
+    <!-- 07 出席確認アプリ -->
     <article class="game-card" id="syusseki">
       <div class="card-header">
         <h2 class="card-title">出席確認アプリ</h2>
@@ -334,7 +318,7 @@
           <div class="img-placeholder">🖼 画像</div>
         </div>
         <div class="card-text">
-          <p class="card-catchcopy">ここに一言キャッチコピーを書く</p>
+          <p class="card-catchcopy">出席情報を管理・確認する</p>
           <p class="card-desc">概要説明文をここに書く</p>
         </div>
       </div>
@@ -344,7 +328,8 @@
       </div>
     </article>
 
-    <!-- 09 スタンプラリー -->
+    <!-- 08 スタンプラリー -->
+
     <article class="game-card" id="stamp">
       <div class="card-header">
         <h2 class="card-title">デジタルスタンプラリーアプリ</h2>
